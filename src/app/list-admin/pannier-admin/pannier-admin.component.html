@@ -1,0 +1,37 @@
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+          <th>reference</th>
+          <th>idproduit</th>
+          <th>idclient</th>
+          <th>date</th>
+          <th>statut</th>
+          <th>operation</th>
+          <th>quantite</th>
+          <td>total</td>
+        </tr>
+      </thead>
+      <tbody>
+@for(t of commade_list;track $index){
+    <tr>
+        <td>{{t.id}}</td>
+        <td>{{t.idproduit}}</td>
+        <td>{{t.idclient}}</td>
+        
+        <td>{{t.date}}</td>
+        <td>
+            <select name="" id="" [value]="t.statut" (change)="modifier(t.id,$event.target)">
+                <option value="en attend" >en attend</option>
+                <option value="en preparation" >en preparation</option>
+                <option value="delivrer" >delivrer</option>
+            </select>
+        </td>
+        <td>
+            <input type="button" value="supprimer "  class="btn btn-danger" (click)="delet(t.id)">
+        </td>
+        <td>{{t.quantite }} </td>
+        <td>{{t.total|convertire}} TND</td>
+    </tr>
+}
+</tbody>
+</table>

@@ -1,0 +1,121 @@
+{
+  "commande": [
+    {
+      "id": "1",
+      "idproduit": "1",
+      "idclient": "10",
+      "quantite": 5,
+      "date": "2024-11-24",
+      "statut": "en attend",
+      "total": 0
+    },
+    {
+      "id": "2",
+      "idproduit": "3",
+      "idclient": "15",
+      "quantite": 2,
+      "date": "2024-11-23",
+      "statut": "en preparation",
+      "total": 0
+    },
+    {
+      "id": "4",
+      "idproduit": "12",
+      "idclient": "5",
+      "quantite": 1,
+      "date": "2024-11-21",
+      "statut": "delivrer",
+      "total": 0
+    },
+    {
+      "id": "5",
+      "idproduit": "18",
+      "idclient": "20",
+      "quantite": 7,
+      "date": "2024-11-20",
+      "statut": "en preparation",
+      "total": 0
+    },
+    {
+      "id": "6",
+      "idproduit": "2",
+      "idclient": "41",
+      "quantite": 5,
+      "date": "2024-11-25",
+      "statut": "en attend",
+      "total": 0
+    },
+    {
+      "id": "7",
+      "idproduit": "3",
+      "idclient": "41",
+      "quantite": 7,
+      "date": "2024-11-25",
+      "statut": "delivrer",
+      "total": 0
+    },
+    {
+      "id": "8",
+      "idproduit": "4",
+      "idclient": "41",
+      "quantite": 5,
+      "date": "2024-11-25",
+      "statut": "en attend",
+      "total": 0
+    },
+    {
+      "id": "13",
+      "idproduit": "2",
+      "idclient": "11",
+      "quantite": 7,
+      "date": "2024-11-26",
+      "statut": "en attend",
+      "total": 4900
+    },
+    {
+      "id": "14",
+      "idproduit": "4",
+      "idclient": "11",
+      "quantite": 1,
+      "date": "2024-11-26",
+      "statut": "en attend",
+      "total": 300
+    },
+    {
+      "id": "15",
+      "idproduit": "2",
+      "idclient": "6",
+      "quantite": 2,
+      "date": "2024-11-26",
+      "statut": "en attend",
+      "total": 1400
+    },
+    {
+      "id": "16",
+      "idproduit": "2",
+      "idclient": "6",
+      "quantite": 2,
+      "date": "2024-11-26",
+      "statut": "en attend",
+      "total": 1400
+    },
+    {
+      "id": "16",
+      "idproduit": "2",
+      "idclient": "6",
+      "quantite": 2,
+      "date": "2024-11-26",
+      "statut": "en attend",
+      "total": 1400
+    },
+    {
+      "id": "17",
+      "idproduit": "2",
+      "idclient": "11",
+      "quantite": 3,
+      "date": "2024-11-26",
+      "statut": "en attend",
+      "total": 2100
+    }
+  ]
+}

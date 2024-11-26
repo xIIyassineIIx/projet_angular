@@ -1,0 +1,116 @@
+<form id="pcForm" [formGroup]="nouveauproduit" (ngSubmit)="onsubmit()" class="form-group">
+    <h2>Informations sur le produit</h2>
+    
+    <label for="id" >ID :</label>
+    <input type="text" id="id" name="id" formControlName="id" class="form-control" >
+    <br><br>
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" formControlName="nom" class="form-control">
+    @if(produitnom?.invalid && produitnom?.dirty){
+        <div class="alert alert-danger">
+            le nom du produit a un format invalid
+        </div>
+    }
+    <br><br>
+    <label for="description">Description :</label>
+    <textarea id="description" name="description"   formControlName="description" class="form-control"></textarea>
+    @if(produitdis?.invalid && produitdis?.dirty){
+        <div class="alert alert-danger">
+            la description du produit a un format invalid
+        </div>
+    }
+    <br><br>
+
+    <label for="prix">Prix (DT) :</label>
+    <input type="number" id="prix" name="prix" formControlName="prix" class="form-control">
+    @if(prixvalid()){
+        <div class="alert alert-danger">
+            le prix du produit est invalid
+        </div>
+    }
+    <br><br>
+
+    <label for="categorie">Catégorie :</label>
+    
+    <select (change)="oncahge($event)" formControlName="categorie" class="form-select">
+        <option value="null" >categorie</option>
+        @for(p of produit;track $index){
+            <option [value]="p.categorie">{{p.categorie}}</option>
+        }
+    </select>
+    @if(selectvalid()){
+        <div class="alert alert-danger">
+            le choix  du produit est  obligatoire!
+        </div>
+    }<br><br>
+    <label for="photoUrl">URL de la photo :</label>
+    <input type="text" id="photoUrl" name="photoUrl" formControlName="photoUrl" class="form-control">
+    @if(produitphoto?.invalid && produitphoto?.dirty){
+        <div class="alert alert-danger">
+            le photo du produit est invalid
+        </div>
+    }<br><br>
+
+    <label for="disponibilite">Disponibilité :</label>
+    <input type="checkbox" id="disponibilite" name="disponibilite" checked formControlName="disponibilite"><br><br>
+
+    
+    @if(cat=="Gaming"){
+        <h2>Spécifications</h2>
+        <div formGroupName="specification">
+            <label for="processeur">Processeur :</label>
+        <input type="text" id="processeur" name="processeur" formControlName="processeur" class="form-control"><br><br>
+
+        <label for="ram">RAM :</label>
+        <input type="text" id="ram" name="ram" formControlName="ram" class="form-control"><br><br>
+
+        <label for="stockage">Stockage :</label>
+        <input type="text" id="stockage" name="stockage" formControlName="stockage" class="form-control"><br><br>
+
+        <label for="carteGraphique">Carte graphique :</label>
+        <input type="text" id="carteGraphique" name="carteGraphique" formControlName="carteGraphique" class="form-control"><br><br>
+
+        <label for="systemeExploitation">Système d'exploitation :</label>
+        <input type="text" id="systemeExploitation" name="systemeExploitation" formControlName="systemeExploitation" class="form-control"><br><br>
+
+        </div>
+    }
+    
+
+    <button type="submit" class="btn btn-success aa">Envoyer</button>
+</form>
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+          <th>id</th>
+          <th>nom</th>
+          <th>description</th>
+          <th>prix</th>
+          <th>categorie</th>
+          <th>disponibilite</th>
+          <th>photo</th>
+          <th>specification</th>
+          <th>operation</th>
+        </tr>
+      </thead>
+      <tbody>
+@for(t of produit;track $index){
+    <tr>
+        <td>{{t.id}}</td>
+        <td>{{t.nom}}</td>
+        <td>{{t.description}}</td>
+        <td>{{t.prix |convertire}}</td>
+        <td>{{t.categorie}}</td>
+        <td>{{t.disponibilite}}</td>
+        <td><img [src]="t.photoUrl" alt=""></td>
+        <td>{{t.specification | json}}</td>
+        <td>
+            <input type="button" value="mise a jour" class="btn btn-info" (click)="update(t.id)">
+            <input type="button" value="supprimer "  class="btn btn-danger" (click)="delet(t.id)">
+        </td>
+    </tr>
+}
+
+</tbody>
+
+</table>

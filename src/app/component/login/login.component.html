@@ -1,0 +1,39 @@
+<div class="container" id="container">
+    <h2 id="formtitle">{{etat}}</h2>
+    <form id="authform" [formGroup]="connexion" (ngSubmit)="onsubmit()">
+        @if(ok){
+            
+            <div id="namefield"  >
+                <input type="text" id="fullname" placeholder="Full Name" formControlName="name"/>
+                @if(nom?.invalid && nom?.dirty){
+                  <div class="alert alert-danger">
+                      le nom est obligatoire
+                  </div>
+              }
+                <input type="text" id="lastname" placeholder="Last Name" formControlName="last"/>
+                @if(prenom?.invalid && prenom?.dirty){
+                  <div class="alert alert-danger">
+                      le prenom est obligatoire
+                  </div>
+              }
+              </div>
+        }
+
+      <input type="email" id="email" placeholder="Email" required formControlName="mail"/>
+      @if(email?.invalid && email?.dirty){
+        <div class="alert alert-danger">
+            l'email est unvalid
+        </div>
+    }
+      <input type="password" id="password" placeholder="Password" required formControlName="motDePasse"/>
+      @if(motDePasse?.invalid && motDePasse?.dirty){
+        <div class="alert alert-danger">
+            lel mot de passe est unvalid
+        </div>
+    }
+      <p class="text-danger">{{alert}}</p>
+      <input type="submit" value="Submit" class="btn">
+    </form>
+    <input type="button" value="Switch to Sign Up"class="btn btn1" (click)="onclick()">
+    
+  </div>

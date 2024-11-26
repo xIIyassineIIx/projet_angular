@@ -1,0 +1,21 @@
+a:hover{
+    background-color: rgb(219, 255, 219);
+    cursor: pointer;
+   
+    
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+    overflow:visible;
+}
+li:hover{
+    border: 2px solid green;
+    border-radius: 5px;
+    
+}
+h1{
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}

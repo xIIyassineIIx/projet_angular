@@ -1,0 +1,27 @@
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+          <th>id</th>
+          <th>nom</th>
+          <th>prenom</th>
+          <th>mail</th>
+          <th>mot de pass</th>
+          <th>operation</th>
+        </tr>
+      </thead>
+      <tbody>
+@for(t of comptes;track $index){
+    <tr>
+        <td>{{t.id}}</td>
+        <td>{{t.name}}</td>
+        <td>{{t.last}}</td>
+        <td >{{t.mail }}</td>
+        <td (click)="affiche($event,t.motDePasse)">{{t.motDePasse |couvrer }}</td>
+        <td>
+            
+            <input type="button" value="supprimer "  class="btn btn-danger" (click)="delet(t.id)">
+        </td>
+    </tr>
+}
+</tbody>
+</table>

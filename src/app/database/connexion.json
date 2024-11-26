@@ -1,0 +1,81 @@
+{
+  "connexion": [
+    {
+      "id": "1",
+      "name": "Jean",
+      "last": "Dupont",
+      "mail": "jean.dupont@example.com",
+      "motDePasse": "password123"
+    },
+    {
+      "id": "2",
+      "name": "Sophie",
+      "last": "Martin",
+      "mail": "sophie.martin@example.com",
+      "motDePasse": "sophiepass"
+    },
+    {
+      "id": "3",
+      "name": "Pierre",
+      "last": "Leclerc",
+      "mail": "pierre.leclerc@example.com",
+      "motDePasse": "leclerc2023"
+    },
+    {
+      "id": "4",
+      "name": "yassine",
+      "last": "akkari",
+      "mail": "yy2121021@gmail.com",
+      "motDePasse": "qsdqsdqsdqsd"
+    },
+    {
+      "id": "5",
+      "name": "fatma",
+      "last": "akkari",
+      "mail": "yy2121023@gmail.com",
+      "motDePasse": "qsdqsdqd"
+    },
+    {
+      "id": "6",
+      "name": "admin",
+      "last": "admin",
+      "mail": "admin@techlab.com",
+      "motDePasse": "admin"
+    },
+    {
+      "id": "7",
+      "name": "sqdqsd",
+      "last": "qsdqsd",
+      "mail": "yy2121021@gmail.com",
+      "motDePasse": "sqdqsdqsdqd"
+    },
+    {
+      "id": "8",
+      "name": "yassine",
+      "last": "admin",
+      "mail": "yy2121021@gmail.com",
+      "motDePasse": "dsqdsqdqdsq"
+    },
+    {
+      "id": "9",
+      "name": "yassine",
+      "last": "qsdqdqsdq",
+      "mail": "sophie@example.com",
+      "motDePasse": "dscsqdqsdqsdqsd"
+    },
+    {
+      "id": "10",
+      "name": "yassine",
+      "last": "qsdqsdqsd",
+      "mail": "dqsdqsd@gmail.com",
+      "motDePasse": "qdqsdqsdqsd"
+    },
+    {
+      "id": "11",
+      "name": "mohamed",
+      "last": "akkari",
+      "mail": "yy2121021@gmail.com",
+      "motDePasse": "mohamed"
+    }
+  ]
+}

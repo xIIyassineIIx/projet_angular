@@ -1,0 +1,42 @@
+<main>
+    <div class="img">
+        <img  [src]="produit.photoUrl || 'assets/placeholder.png'" >
+    </div>
+    <div class="dis">
+        <p class="fs-5 fw-bolder text-dark">{{produit.nom}}</p>
+        <p class="fs-6 text-dark">{{produit.description}}</p>
+        <p class="fs-3 fw-bolder text-success">{{produit.prix | convertire}}TND <span class="fs-6 text-muted">Taxe incluse <br> Au lieu de {{produit.prix |convertire | remise}} TND</span> </p>
+        @if(produit.categorie=="Gaming"){
+            <p  class="fs-5 fw-bolder text-dark">Détails du produit :</p>
+            <p><i class="bi bi-cpu"></i> {{produit.specification?.processeur}}</p>
+            <p><i class="bi bi-memory"></i> {{produit.specification?.ram}}</p>
+            <p><i class="bi bi-hdd"></i> {{produit.specification?.stockage}}</p>
+            <p><i class="bi bi-gpu-card"></i> {{produit.specification?.carteGraphique}}</p>
+            <p><i class="bi bi-windows"></i> {{produit.specification?.systemeExploitation}}</p>
+        }
+        
+        <input type="number" value="0" class="qte" #qte><button (click)="ajouter(qte.value,produit.id)" class="btn btn-primary btn1">ajouter au pannier</button>
+    </div>
+</main>
+<aside>
+    <h2><i class="bi bi-chat-dots"></i> Avis et Commentaires :</h2>
+    @for(compte of commentaire ; track compte.id){
+        <div class="infocommentaire">
+            <div class="avatar"><span class="imgcompte"></span> <span class="nom fs-5 fw-bolder text-dark">{{compte.nom}} {{compte.prenom}}</span> <span class="date">{{compte.dateCreation}}</span></div>
+            <p class="commentaire">{{compte.message}}</p>
+        </div>
+    }
+    <p class="fs-6 text-muted">taper ici : </p>
+    <form [formGroup]="ajoutecommentaire" (ngSubmit)="onSubmit()">
+        <textarea formControlName="message" cols="70" rows="1"></textarea>
+        <button type="submit" [disabled]="ajoutecommentaire.invalid">Envoyer</button>
+      </form>
+      
+
+      <div class="alert alert-danger" id="horstock" role="alert">
+        le produit est hors stock!!
+        </div>
+        <div class="alert alert-success" id="stock" role="alert">
+            Ajouté
+        </div>
+</aside>

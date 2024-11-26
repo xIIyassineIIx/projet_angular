@@ -1,0 +1,28 @@
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+          <th>id</th>
+          <th>nom</th>
+          <th>prenom</th>
+          <th>message</th>
+          <th>idProduit</th>
+          <th>date de creation</th>
+          <th>operation</th>
+        </tr>
+      </thead>
+      <tbody>
+@for(t of commentaire;track $index){
+    <tr>
+        <td>{{t.id}}</td>
+        <td>{{t.nom}}</td>
+        <td>{{t.prenom}}</td>
+        <td>{{t.message }}</td>
+        <td>{{t.idproduit}}</td>
+        <td>{{t.dateCreation}}</td>
+        <td>
+            <input type="button" value="supprimer "  class="btn btn-danger" (click)="deletcomm(t.id)">
+        </td>
+    </tr>
+}
+</tbody>
+</table>

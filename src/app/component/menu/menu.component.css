@@ -1,0 +1,53 @@
+ul li {
+    background-color: white;
+    width: 15%;
+    text-align: center;
+
+}
+
+ul li:nth-child(1) {
+    margin-left: 10%;
+    background-color: white;
+    border-top-left-radius: 5px;
+
+
+}
+
+ul li:nth-child(2) {
+
+    background-color: white;
+    border-left: 1px solid grey;
+
+}
+
+ul li:nth-child(3) {
+
+    background-color: white;
+    border-top-right-radius: 5px;
+    border-left: 1px solid grey;
+}
+
+ul {
+    margin-bottom: 30px;
+
+    text-transform: capitalize;
+    font-weight: bold;
+
+}
+
+ul ol {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    min-width: 200px;
+
+    border: 1px solid #ddd;
+    z-index: 1000;
+}
+
+ul li:hover ol {
+    display: block;
+}

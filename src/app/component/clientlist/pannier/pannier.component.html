@@ -1,0 +1,32 @@
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+          <th>reference</th>
+          <th>idproduit</th>
+          <th>idclient</th>
+          <th>date</th>
+          <th>statut</th>
+          <th>operation</th>
+          <th>quantite</th>
+          <th>Total</th>
+
+        </tr>
+      </thead>
+      <tbody>
+@for(t of commade_list;track $index){
+    <tr>
+        <td>{{t.id}}</td>
+        <td><a [routerLink]="['/produit',t.idproduit]">{{t.idproduit}}</a></td>
+        <td>{{t.idclient}}</td>
+        
+        <td>{{t.date}}</td>
+        <td>{{t.statut}}</td>
+        <td>
+            <input type="button" value="supprimer "  class="btn btn-danger" (click)="delet(t.id)">
+        </td>
+        <td><button (click)="diminuer(t.id)">-</button>{{t.quantite }} <button (click)="augmente(t.id)">+</button> </td>
+        <td>{{t.total|convertire}} TND</td>
+    </tr>
+}
+</tbody>
+</table>

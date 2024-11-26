@@ -1,0 +1,31 @@
+<div class="main bg-success">
+    <div class="logo"><i class="bi bi-cart2"></i> TechLab</div>
+   <span class="nav"><input list="browsers" id="browser" name="browser" placeholder="Type to see suggestions" #rech >
+    
+    <datalist id="browsers">
+            @for(p of produit; track $index){
+                <option [value]="p.id" >{{p.nom}}</option>
+            }
+    </datalist><button on (click)="onclick(rech.value)"><i class="bi bi-search"></i></button>
+</span> 
+<div>
+@if(satatut=="admin"){
+    <a [routerLink]="['admin']"><span class="fs-5 fw-bolder text-white">
+    {{ch |titlecase }}
+</span>
+</a>
+<button (click)="onLogout()" class="btn btn-danger">logOut</button>
+}@else if(satatut=="client") {
+    <a [routerLink]="['client']">
+        <span class="fs-5 fw-bolder text-white">
+            {{ch |titlecase }}
+            
+        </span>
+        
+        </a>
+<button (click)="onLogout()" class="btn btn-danger">logOut</button>
+}
+
+</div>
+
+</div>

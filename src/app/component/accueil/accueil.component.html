@@ -1,0 +1,18 @@
+<div class="main-container">
+    <div class="container">
+        @for (image of produit; track $index) {
+            <div>
+           <a [routerLink]="['/produit',image.id]"> <img [src]="image.photoUrl" alt=""></a>
+           <p class=" prix fs-4 fw-bolder text-dark bg-success">{{image.prix |convertire}} DT</p>
+           </div>
+        }
+    </div>
+</div>
+<div class="container2">
+    @for (image of produit; track $index) {
+    <div>
+       <a [routerLink]="['/produit',image.id]"> <img [src]="image.photoUrl" alt=""></a>
+       <p class="fs-5 fw-bolder text-dark bg-success"><span>{{image.nom}}</span>     <span style="float: right;">{{image.prix | convertire}} DT</span></p>
+    </div >
+    }
+</div>

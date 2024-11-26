@@ -1,0 +1,11 @@
+<ul class=" nav nav-tabs main bg-success">
+    <li class="nav-item"><a class="nav-link" [routerLink]="['/lesproduits']" > nos rayons</a>
+        <ol>
+            @for(p of listproduit ; track $index){
+                <li class="nav-item"><a class="nav-link" [routerLink]="['/lesproduits',p]" >{{p}}</a></li>
+            }
+        </ol>
+    </li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="['/accueil']">Accuiel</a></li>
+    <li class="nav-item"><a class="nav-link" [routerLink]="['/login']">login</a></li>
+</ul>

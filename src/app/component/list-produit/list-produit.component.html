@@ -1,0 +1,19 @@
+<main>
+@for(t of tab;track t.id){
+    <a [routerLink]="['/produit',t.id]" routerLinkActive="router-link-active" >
+    <div class="shadow-lg p-3 mb-5 bg-body rounded" class="element">
+    <div class="produit">
+        <div class="img"><img [src]="t.photoUrl" alt=""></div>
+        <div class="dis">
+            <p class="fs-5 fw-bolder text-dark">{{t.nom}}</p>
+            <p class="fs-6 text-secondary" >{{t.description}}</p>
+            <p class="fw-bolder text-success">{{t.prix}}DT</p>
+        </div>
+        
+        
+    </div>
+    <div [ngClass]="{'bg-danger': t.disponibilite==false,'bg-success': t.disponibilite}" class="dis"></div>
+    </div>
+    </a>
+}
+</main>
