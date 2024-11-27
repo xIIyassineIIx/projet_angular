@@ -34,8 +34,8 @@
     
     <select (change)="oncahge($event)" formControlName="categorie" class="form-select">
         <option value="null" >categorie</option>
-        @for(p of produit;track $index){
-            <option [value]="p.categorie">{{p.categorie}}</option>
+        @for(p of listproduit;track $index){
+            <option [value]="p">{{p}}</option>
         }
     </select>
     @if(selectvalid()){
@@ -51,7 +51,10 @@
         </div>
     }<br><br>
 
-    <label for="disponibilite">Disponibilité :</label>
+    <label for="date">Date de creation</label>
+    <input type="text"  id="date" class="form-control"    formControlName="date"><br><br>
+
+    <label for="disponibilite" >Disponibilité :</label>
     <input type="checkbox" id="disponibilite" name="disponibilite" checked formControlName="disponibilite"><br><br>
 
     
@@ -89,6 +92,8 @@
           <th>categorie</th>
           <th>disponibilite</th>
           <th>photo</th>
+          <th>date</th>
+
           <th>specification</th>
           <th>operation</th>
         </tr>
@@ -103,6 +108,7 @@
         <td>{{t.categorie}}</td>
         <td>{{t.disponibilite}}</td>
         <td><img [src]="t.photoUrl" alt=""></td>
+        <td>{{t.date}}</td>
         <td>{{t.specification | json}}</td>
         <td>
             <input type="button" value="mise a jour" class="btn btn-info" (click)="update(t.id)">

@@ -10,6 +10,8 @@ export class Produit {
         public disponibilite: boolean,
         public photoUrl: string,
         public commentaires: string[],
+        public date:string,
         public specification?: Specs
+        
     ) { }
 }

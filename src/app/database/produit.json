@@ -8,6 +8,7 @@
       "categorie": "Gaming",
       "disponibilite": true,
       "photoUrl": "pc-gamer-qubo-ryzen-7-5700g-radeon-vega-7-graphics-16gb-512-gb-v2-tunisie.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {
         "processeur": "Intel Core i5",
         "ram": "16GB DDR4",
@@ -24,6 +25,7 @@
       "categorie": "Gaming",
       "disponibilite": false,
       "photoUrl": "pc-gamer-trex-ryzen-5-7600x-rtx-4070-super-16gb-1to-tunisie.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {
         "processeur": "AMD Ryzen 9",
         "ram": "64GB DDR4",
@@ -40,6 +42,7 @@
       "categorie": "CPU",
       "disponibilite": true,
       "photoUrl": "processeur-intel-core-i7-10700-10e-generation-lga1200.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {}
     },
     {
@@ -50,6 +53,7 @@
       "categorie": "RAM",
       "disponibilite": true,
       "photoUrl": "barrette-memoire-corsair-c18-vengeance-k2-d4-32gb-rgb-pro-3600mhz-tunisie.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {}
     },
     {
@@ -60,6 +64,7 @@
       "categorie": "GPU",
       "disponibilite": false,
       "photoUrl": "carte-graphique-zotac-gaming-geforce-rtx-3060-twin-edge-12gb-gddr6-tunisie.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {}
     },
     {
@@ -70,6 +75,7 @@
       "categorie": "SSD",
       "disponibilite": true,
       "photoUrl": "sumssd.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {}
     },
     {
@@ -80,6 +86,7 @@
       "categorie": "Gaming",
       "disponibilite": true,
       "photoUrl": "download.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {
         "processeur": "Intel Core i9",
         "ram": "32GB DDR4",
@@ -96,6 +103,7 @@
       "categorie": "Gaming",
       "disponibilite": true,
       "photoUrl": "download.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {
         "processeur": "Intel Core i9",
         "ram": "32GB DDR4",
@@ -112,8 +120,43 @@
       "categorie": "CPU",
       "disponibilite": true,
       "photoUrl": "download.jpg",
+      "date": "2024-11-27T00:00:00Z",
       "specification": {
         "processeur": "",
+        "ram": "",
+        "stockage": "",
+        "carteGraphique": "",
+        "systemeExploitation": ""
+      }
+    },
+    {
+      "id": "20",
+      "nom": "PC Bureau B200",
+      "description": "Un PC de bureau polyvalent adapté pour le travail de bureau et la productivité.",
+      "prix": 700,
+      "categorie": "Gaming",
+      "disponibilite": true,
+      "photoUrl": "pc-gamer-qubo-ryzen-7-5700g-radeon-vega-7-graphics-16gb-512-gb-v2-tunisie.jpg",
+      "date": "2024-11-27T00:00:00Z",
+      "specification": {
+        "processeur": "Intel Core i5",
+        "ram": "16GB DDR4",
+        "stockage": "512GB SSD",
+        "carteGraphique": "Intel UHD Graphics 630",
+        "systemeExploitation": "Windows 10"
+      }
+    },
+    {
+      "id": "21",
+      "nom": "sqdqs",
+      "description": "qsdqsdqsd",
+      "prix": 2,
+      "categorie": "Gaming",
+      "disponibilite": true,
+      "photoUrl": "download.jpg",
+      "date": "2024-11-27",
+      "specification": {
+        "processeur": "qsdqs",
         "ram": "",
         "stockage": "",
         "carteGraphique": "",

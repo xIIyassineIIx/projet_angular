@@ -19,6 +19,7 @@ export class ProduitlistComponent {
   identifiant!:string
   nouveauproduit!: FormGroup
   produitservice: ProduitService = inject(ProduitService);
+  listproduit: string[]=[];
   ngOnInit(): void {
     this.nouveauproduit = new FormGroup({
       id: new FormControl('', Validators.required ),
@@ -28,6 +29,7 @@ export class ProduitlistComponent {
       categorie: new FormControl('', Validators.required),
       disponibilite: new FormControl(true),
       photoUrl: new FormControl('', [Validators.required, Validators.pattern("(.)+(jpg|png)$")]),
+      date:new FormControl(new Date().toISOString().split("T")[0]),
       specification: new FormGroup({
         processeur: new FormControl('',),
         ram: new FormControl('',),
@@ -39,6 +41,11 @@ export class ProduitlistComponent {
     this.produitservice.getproduit().subscribe(data =>{
       this.nouveauproduit.get("id")?.setValue(String(Number(data[data.length-1].id)+1))
       this.produit = data
+      data.forEach(val=>{
+        if(!this.listproduit.find(x=>x==val.categorie)){
+          this.listproduit.push(val.categorie)
+        }
+      })
     } );
     
     
@@ -84,6 +91,7 @@ export class ProduitlistComponent {
       categorie: this.p.categorie,
       disponibilite: this.p.disponibilite,
       photoUrl: this.p.photoUrl,
+      date:this.p.date,
       specification: {
         processeur: this.p.specification?.processeur,
         ram: this.p.specification?.ram,
@@ -94,11 +102,18 @@ export class ProduitlistComponent {
     });
     
   }
-  updat: boolean = false;
   onsubmit() {
+    if(this.produit.find(x=>x.id==this.nouveauproduit.get("id")?.value)){
+      this.produitservice.putproduit(this.nouveauproduit.value).subscribe()
+      this.produit[this.produit.findIndex((x=>x.id==this.nouveauproduit.get("id")?.value))]=this.nouveauproduit.value
+    }else{
       this.produitservice.postproduit(this.nouveauproduit.value).subscribe()
       this.produit.push(this.nouveauproduit.value);
-      this.nouveauproduit.get("id")?.setValue(String(Number(this.produit[this.produit.length-1].id)+1))
+      
+    }
+    this.nouveauproduit.reset()
+    this.nouveauproduit.get("id")?.setValue(String(Number(this.produit[this.produit.length-1].id)+1))
+    this.nouveauproduit.get("date")?.setValue(new Date().toISOString().split("T")[0])
       
     
   }
