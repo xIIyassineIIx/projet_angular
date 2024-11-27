@@ -32,6 +32,7 @@ produitservice: ProduitService = inject(ProduitService);
   commandeservice:CommandeService=inject(CommandeService);
   personne!:Connexion
   connecterservice: ConnecterService = inject(ConnecterService);
+  identifiant!: string;
   ngOnInit(): void {
     if(this.connecterservice.avoir()!=null){
       this.personne=this.connecterservice.avoir() as Connexion ;
@@ -67,5 +68,19 @@ this.commade_list.map(x=>{
 delet(id: string) {
   this.commandeservice.deletecommande(id).subscribe()
   this.commade_list=this.commade_list.filter(x=>x.id!=id);
+}
+alert(id:string) {
+  let elem=document.getElementById("alert") as HTMLBaseElement;
+  elem.style.display="block"
+  this.identifiant=id;
+}
+confirmer() {
+this.delet(this.identifiant)
+let elem=document.getElementById("alert") as HTMLBaseElement;
+elem.style.display="none"
+}
+annuler() {
+  let elem=document.getElementById("alert") as HTMLBaseElement;
+  elem.style.display="none"
 }
 }

@@ -25,13 +25,27 @@ export class ComptesComponent implements OnInit{
 
   comptes: Connexion[] = [];
   connexionservice: ConnexionService = inject(ConnexionService);
+  identifiant!: string;
   
     ngOnInit(): void {
     this.connexionservice.check().subscribe(data=>this.comptes=data)
   }
   
   
-  
+  alert(id:string) {
+    let elem=document.getElementById("alert") as HTMLBaseElement;
+    elem.style.display="block"
+    this.identifiant=id;
+  }
+  confirmer() {
+  this.delet(this.identifiant)
+  let elem=document.getElementById("alert") as HTMLBaseElement;
+  elem.style.display="none"
+  }
+  annuler() {
+    let elem=document.getElementById("alert") as HTMLBaseElement;
+    elem.style.display="none"
+  }
   affiche($event: MouseEvent, ch: string) {
     ($event.target as HTMLSelectElement).innerHTML = ch;
   }

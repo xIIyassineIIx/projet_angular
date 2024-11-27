@@ -1,3 +1,18 @@
+<section>
+<aside class="filtrage">
+    <div>
+        <label class="bg-success fs-4">Prix</label>
+        {{min |convertire}}<input type="range" class="form-range" [min]="0" [max]="max" [(ngModel)]="rangeValue" (change)="onrange()">{{max |convertire}}
+        <p>{{rangeValue |convertire}}TND</p>
+        <label  class="label bg-success fs-4">Disponibilité</label>
+        <select class="form-select" [(ngModel)]="dispo" (change)="onchange()">
+            <option value="true">stock</option>
+            <option value="false">repture</option>
+        </select>
+    </div>
+    
+
+</aside>
 <main>
 @for(t of tab;track t.id){
     <a [routerLink]="['/produit',t.id]" routerLinkActive="router-link-active" >
@@ -7,7 +22,7 @@
         <div class="dis">
             <p class="fs-5 fw-bolder text-dark">{{t.nom}}</p>
             <p class="fs-6 text-secondary" >{{t.description}}</p>
-            <p class="fw-bolder text-success">{{t.prix}}DT</p>
+            <p class="fw-bolder text-success">{{t.prix  |convertire}}DT</p>
         </div>
         
         
@@ -17,3 +32,4 @@
     </a>
 }
 </main>
+</section>

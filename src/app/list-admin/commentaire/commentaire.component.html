@@ -20,9 +20,16 @@
         <td>{{t.idproduit}}</td>
         <td>{{t.dateCreation}}</td>
         <td>
-            <input type="button" value="supprimer "  class="btn btn-danger" (click)="deletcomm(t.id)">
+            <input type="button" value="supprimer "  class="btn btn-danger" (click)="alert(t.id)">
         </td>
     </tr>
 }
 </tbody>
+<div class="alert alert-warning verif" id="alert" role="alert">
+    <br>
+    <p>Voulez-vous vraiment supprimer cet élément ?</p>
+    <i class="bi bi-exclamation-triangle-fill"></i><br><br>
+    <button (click)="confirmer()" class="btn btn-secondary">confirmer</button>
+    <button (click)="annuler()" class="btn btn-primary">annuler</button>
+</div>
 </table>

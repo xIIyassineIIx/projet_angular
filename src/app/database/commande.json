@@ -46,24 +46,6 @@
       "total": 0
     },
     {
-      "id": "7",
-      "idproduit": "3",
-      "idclient": "41",
-      "quantite": 7,
-      "date": "2024-11-25",
-      "statut": "delivrer",
-      "total": 0
-    },
-    {
-      "id": "8",
-      "idproduit": "4",
-      "idclient": "41",
-      "quantite": 5,
-      "date": "2024-11-25",
-      "statut": "en attend",
-      "total": 0
-    },
-    {
       "id": "13",
       "idproduit": "2",
       "idclient": "11",
@@ -71,15 +53,6 @@
       "date": "2024-11-26",
       "statut": "en attend",
       "total": 4900
-    },
-    {
-      "id": "14",
-      "idproduit": "4",
-      "idclient": "11",
-      "quantite": 1,
-      "date": "2024-11-26",
-      "statut": "en attend",
-      "total": 300
     },
     {
       "id": "15",
@@ -107,15 +80,6 @@
       "date": "2024-11-26",
       "statut": "en attend",
       "total": 1400
-    },
-    {
-      "id": "17",
-      "idproduit": "2",
-      "idclient": "11",
-      "quantite": 3,
-      "date": "2024-11-26",
-      "statut": "en attend",
-      "total": 2100
     }
   ]
 }

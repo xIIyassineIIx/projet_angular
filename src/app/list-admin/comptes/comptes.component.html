@@ -19,9 +19,16 @@
         <td (click)="affiche($event,t.motDePasse)">{{t.motDePasse |couvrer }}</td>
         <td>
             
-            <input type="button" value="supprimer "  class="btn btn-danger" (click)="delet(t.id)">
+            <input type="button" value="supprimer "  class="btn btn-danger" (click)="alert(t.id)">
         </td>
     </tr>
 }
 </tbody>
 </table>
+<div class="alert alert-warning verif" id="alert" role="alert">
+    <br>
+    <p>Voulez-vous vraiment supprimer cet élément ?</p>
+    <i class="bi bi-exclamation-triangle-fill"></i><br><br>
+    <button (click)="confirmer()" class="btn btn-secondary">confirmer</button>
+    <button (click)="annuler()" class="btn btn-primary">annuler</button>
+</div>

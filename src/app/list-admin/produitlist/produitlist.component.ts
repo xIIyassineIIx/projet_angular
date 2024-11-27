@@ -15,26 +15,36 @@ import { JsonPipe } from '@angular/common';
 export class ProduitlistComponent {
   produit: Produit[] = [];
   cat: any;
+  id!:string
+  identifiant!:string
+  nouveauproduit!: FormGroup
   produitservice: ProduitService = inject(ProduitService);
   ngOnInit(): void {
-    this.produitservice.getproduit().subscribe(data => this.produit = data);
-  }
-  nouveauproduit: FormGroup = new FormGroup({
-    id: new FormControl(1, Validators.required),
-    nom: new FormControl('PC Gamer X300', Validators.required),
-    description: new FormControl('Un PC de bureau puissant conçu pour le gaming et les applications graphiques.', Validators.required),
-    prix: new FormControl(1500, [Validators.required, Validators.min(1)]),
-    categorie: new FormControl('Gaming', Validators.required),
-    disponibilite: new FormControl(true),
-    photoUrl: new FormControl('download.jpg', [Validators.required, Validators.pattern("(.)+(jpg|png)$")]),
-    specification: new FormGroup({
-      processeur: new FormControl('Intel Core i9', Validators.required),
-      ram: new FormControl('32GB DDR4', Validators.required),
-      stockage: new FormControl('1TB SSD', Validators.required),
-      carteGraphique: new FormControl('NVIDIA RTX 3080', Validators.required),
-      systemeExploitation: new FormControl('Windows 11', Validators.required)
+    this.nouveauproduit = new FormGroup({
+      id: new FormControl('', Validators.required ),
+      nom: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      prix: new FormControl(0, [Validators.required, Validators.min(0)]),
+      categorie: new FormControl('', Validators.required),
+      disponibilite: new FormControl(true),
+      photoUrl: new FormControl('', [Validators.required, Validators.pattern("(.)+(jpg|png)$")]),
+      specification: new FormGroup({
+        processeur: new FormControl('',),
+        ram: new FormControl('',),
+        stockage: new FormControl('', ),
+        carteGraphique: new FormControl('',),
+        systemeExploitation: new FormControl('', )
+      })
     })
-  });
+    this.produitservice.getproduit().subscribe(data =>{
+      this.nouveauproduit.get("id")?.setValue(String(Number(data[data.length-1].id)+1))
+      this.produit = data
+    } );
+    
+    
+  }
+  
+  
   public get produitid() {
     return this.nouveauproduit.get("id")
   }
@@ -66,42 +76,50 @@ export class ProduitlistComponent {
   p!: Produit;
   update(id: string) {
     this.p = this.produit.find(x => x.id == id) as Produit;
-    this.nouveauproduit = new FormGroup({
-      id: new FormControl(this.p.id, Validators.required),
-      nom: new FormControl(this.p.nom, Validators.required),
-      description: new FormControl(this.p.description, Validators.required),
-      prix: new FormControl(this.p.prix, [Validators.required, Validators.min(0)]),
-      categorie: new FormControl(this.p.categorie, Validators.required),
-      disponibilite: new FormControl(this.p.disponibilite),
-      photoUrl: new FormControl(this.p.photoUrl, [Validators.required, Validators.pattern("(.)+(jpg|png)$")]),
-      specification: new FormGroup({
-        processeur: new FormControl(this.p.specification?.processeur, Validators.required),
-        ram: new FormControl(this.p.specification?.ram, Validators.required),
-        stockage: new FormControl(this.p.specification?.stockage, Validators.required),
-        carteGraphique: new FormControl(this.p.specification?.carteGraphique, Validators.required),
-        systemeExploitation: new FormControl(this.p.specification?.systemeExploitation, Validators.required)
-      })
+    this.nouveauproduit.setValue({
+      id: this.p.id,
+      nom: this.p.nom,
+      description: this.p.description,
+      prix: this.p.prix,
+      categorie: this.p.categorie,
+      disponibilite: this.p.disponibilite,
+      photoUrl: this.p.photoUrl,
+      specification: {
+        processeur: this.p.specification?.processeur,
+        ram: this.p.specification?.ram,
+        stockage: this.p.specification?.stockage,
+        carteGraphique: this.p.specification?.carteGraphique,
+        systemeExploitation: this.p.specification?.systemeExploitation
+      }
     });
+    
   }
   updat: boolean = false;
   onsubmit() {
-    if (this.produit.some(x => x.id == this.produitid?.value)) {
-      this.produitservice.putproduit(this.nouveauproduit.value).subscribe()
-      this.updat = true;
-      this.produit[this.produit.findIndex(x => x.id == this.produitid?.value)] = this.nouveauproduit.value;
-      setInterval(() => {
-        this.updat = false;
-      }, 3000);
-
-
-    }
-    else {
       this.produitservice.postproduit(this.nouveauproduit.value).subscribe()
       this.produit.push(this.nouveauproduit.value);
-    }
+      this.nouveauproduit.get("id")?.setValue(String(Number(this.produit[this.produit.length-1].id)+1))
+      
+    
   }
   oncahge(ev: Event) {
     this.cat = (ev.target as HTMLSelectElement).value;
 
   }
+  alert(id:string) {
+    let elem=document.getElementById("alert") as HTMLBaseElement;
+    elem.style.display="block"
+    this.identifiant=id;
+  }
+  confirmer() {
+  this.delet(this.identifiant)
+  let elem=document.getElementById("alert") as HTMLBaseElement;
+  elem.style.display="none"
+  }
+  annuler() {
+    let elem=document.getElementById("alert") as HTMLBaseElement;
+    elem.style.display="none"
+  }
+  
+    
 }

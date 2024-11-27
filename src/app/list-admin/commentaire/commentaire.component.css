@@ -1,0 +1,8 @@
+.verif{
+    width: 300px;
+    position: fixed;
+    top: 30%;
+    left: 40%;
+    text-align: center;
+    display: none;
+}

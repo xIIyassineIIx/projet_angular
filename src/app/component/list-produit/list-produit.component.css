@@ -1,7 +1,5 @@
 main {
-    margin-left: 30%;
     width: 60%;
-
 }
 
 a {
@@ -15,10 +13,6 @@ a {
     border-radius: 10px;
     display: flex;
     background-color: white;
-}
-
-.dis {
-    padding-top: 100px;
 }
 
 .img {
@@ -42,5 +36,38 @@ img{
     width: 100%;
     height: 20px;
     position: relative;
-    top: -20px
+    top: -20px;
+    padding-top: 100px;
+}
+.filtrage{
+    width: 30%;
+    position: sticky;
+    top: 10%;
+    background-color: white;
+    height: max-content;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    overflow: hidden;
+}
+section{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    justify-content: space-around;
+}
+label{
+    color: white;
+    display: block;
+    margin-bottom: 20px;
+    
+}
+.filtrage input,select{
+    margin-bottom: 20px;
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    width: 60%;
+}
+select{
+    margin-left: 20%;
 }

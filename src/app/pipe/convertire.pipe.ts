@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ConvertirePipe implements PipeTransform {
 
   transform(value:number): number {
-    return value*3.3;
+    return Number((value*3.3).toFixed(3));
   }
 
 }

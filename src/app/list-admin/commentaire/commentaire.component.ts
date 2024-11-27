@@ -10,8 +10,22 @@ import { CommentaireService } from '../../service/commentaire.service';
   styleUrl: './commentaire.component.css'
 })
 export class CommentaireComponent implements OnInit {
+alert(id:string) {
+  let elem=document.getElementById("alert") as HTMLBaseElement;
+  elem.style.display="block"
+  this.identifiant=id;
+}
+confirmer() {
+this.deletcomm(this.identifiant)
+let elem=document.getElementById("alert") as HTMLBaseElement;
+elem.style.display="none"
+}
+annuler() {
+  let elem=document.getElementById("alert") as HTMLBaseElement;
+  elem.style.display="none"
+}
 
-
+  identifiant!:string
   commentaire: Commentaire[] = [];
   commentaireservice: CommentaireService = inject(CommentaireService);
   ngOnInit(): void {

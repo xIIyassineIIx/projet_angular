@@ -14,7 +14,19 @@ import { ConvertirePipe } from "../../pipe/convertire.pipe";
   styleUrl: './pannier-admin.component.css'
 })
 export class PannierADMINComponent implements OnInit{
-modifier(id:string,slt:any) {
+
+  
+    
+    identifiant!:string
+    commade_list:Commande[]=[];
+    commandeservice:CommandeService=inject(CommandeService);
+    ngOnInit(): void {
+      this.commandeservice.getcommandes().subscribe(data=>{
+        return this.commade_list=data
+    })
+      
+    }
+    modifier(id:string,slt:any) {
   console.log(slt.value)
   this.commade_list.map(x=>{
     if(x.id==id){
@@ -27,16 +39,21 @@ modifier(id:string,slt:any) {
     this.commandeservice.deletecommande(id).subscribe()
     this.commade_list=this.commade_list.filter(x=>x.id!=id);
   }
-  
-    
-    
-    commade_list:Commande[]=[];
-    commandeservice:CommandeService=inject(CommandeService);
-    ngOnInit(): void {
-      this.commandeservice.getcommandes().subscribe(data=>{
-        return this.commade_list=data
-    })
-      
+    alert(id:string) {
+      let elem=document.getElementById("alert") as HTMLBaseElement;
+      elem.style.display="block"
+      this.identifiant=id;
     }
+    confirmer() {
+    this.delet(this.identifiant)
+    let elem=document.getElementById("alert") as HTMLBaseElement;
+    elem.style.display="none"
+    }
+    annuler() {
+      let elem=document.getElementById("alert") as HTMLBaseElement;
+      elem.style.display="none"
+    }
+    
+      
   
 }
